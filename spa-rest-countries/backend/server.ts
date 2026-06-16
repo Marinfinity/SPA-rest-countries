@@ -7,7 +7,8 @@ const PORT = 3001;
 app.use(cors()); // permite que React (puerto 5173) llame al backend (puerto 3001)
 app.use(express.json());
 
-// Simular una base de datos en memoria
+// Simular una base de datos en memoria, aquí se van a añadir los paises que marque como favoritos
+//al poner: http://localhost:3001/api/favoritos podemos comprobar los cambios si todo funciona bien.
 let favoritos: string[] = ["Spain", "Japan", "Brazil"];
 
 // GET — devuelve los favoritos
