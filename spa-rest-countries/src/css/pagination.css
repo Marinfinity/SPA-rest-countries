@@ -18,3 +18,15 @@
   background: #c5a059;
   
 }
+@media (max-width: 768px) {
+  .pagination {
+    gap: 6px;
+    margin: 16px 0;
+    flex-wrap: wrap;
+  }
+
+  .pagination button {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+}

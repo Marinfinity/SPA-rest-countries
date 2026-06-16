@@ -50,3 +50,26 @@
   margin: 20px auto 0;
   font-size: 18px;
 }
+@media (max-width: 768px) {
+  .banner-section {
+    height: 280px;
+  }
+
+  .banner-text .titulo {
+    font-size: 36px;
+  }
+
+  .banner-text .subtitulo {
+    font-size: 11px;
+    letter-spacing: 3px;
+  }
+
+  .banner-text .description {
+    font-size: 14px;
+    margin-top: 12px;
+  }
+
+  .section-title {
+    font-size: 22px;
+  }
+}

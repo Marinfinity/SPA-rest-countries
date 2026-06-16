@@ -1,4 +1,4 @@
-/* --- BARRA DE BUSQUEDA (FLOTANTE) --- */
+/* --- BARRA DE BUSQUEDA --- */
 .main-content {
   padding: 0 5%;
   margin-top: -40px;
@@ -31,4 +31,31 @@
   flex: 1;
   border-left: 1px solid #eee;
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: 0 4%;
+    margin-top: -25px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 10px 15px;
+    gap: 0;
+    margin-bottom: 30px;
+  }
+
+  .navbar input,
+  .navbar select {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .navbar select {
+    border-left: none;
+    border-top: 1px solid #eee;
+  }
 }
