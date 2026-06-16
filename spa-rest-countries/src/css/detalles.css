@@ -178,13 +178,7 @@
     }
 
     .lado-imagen {
-        display: flex;
-        justify-content: center;
-    }
-
-    .bandera {
-        max-width: 280px;
-        transform: rotate(0deg);
+        display: none;
     }
 
     .separador {
