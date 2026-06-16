@@ -123,7 +123,7 @@ function Detail() {
                     {/* La bandera actúa como la imagen flotante de la derecha */}
                     <div className="lado-imagen">
                         <img
-                            src={country.flag.url_png}
+                            src={country.flag.url_png || "https://images.unsplash.com/photo-1589519160732-57fc498494f8?q=80&w=500"}
                             alt={`Bandera de ${country.names.common}`}
                             className="bandera"
                         />
