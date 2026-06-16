@@ -1,18 +1,18 @@
-import { FaUserCircle } from "react-icons/fa";
+
 import "../index.css";
 import "../css/nav.css"
 function NavBar({
 
   //recibe props desde home
-  query,
-  filter,
+  query, //texto de la barra de búsqueda
+  filter, //filtro del select
   onQueryChange,
   onFilterChange
 }: {
   query: string;
   filter: string;
-  onQueryChange: (value: string) => void;
-  onFilterChange: (value: string) => void
+  onQueryChange: (value: string) => void;  //Función que se ejecuta cuando el usuario escribe en la barra de búsqueda setQuery y setPage
+  onFilterChange: (value: string) => void  // setFilter y setPage
 }) {
 
   return (
@@ -21,6 +21,7 @@ function NavBar({
         type="text"
         placeholder="Buscar un país..."
         value={query}
+        //cada vez que el usuario escribe se llama a onQueryChange que actualiza el estado en la home y reinicia la paginación
         onChange={(e) => onQueryChange(e.target.value)}
       />
 
@@ -33,7 +34,6 @@ function NavBar({
         <option value="Oceania">Oceanía</option>
       </select>
 
-      <FaUserCircle size={28} className="profile-icon" />
     </nav>
   )
 }

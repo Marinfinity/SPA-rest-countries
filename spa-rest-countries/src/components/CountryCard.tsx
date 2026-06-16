@@ -5,12 +5,14 @@ import "../css/country-list.css"
 
 
 function CountryCard(props: { country?: Country }) {
+  //recibe un objeto props y navigate permite cambiar de página al hacer click en la tarjeta
   const navigate = useNavigate();
   
 
   return (
     <div key={props.country?.codes.ccn3} className="card" onClick={() => {
     console.log("country:", props.country);
+    //al hacer click pasa el país en el state para mostrar los detalles
     navigate(`/country/${props.country?.names.common}`, { state: { country: props.country } });
 }}>
       <img

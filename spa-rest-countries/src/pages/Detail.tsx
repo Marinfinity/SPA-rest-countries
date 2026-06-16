@@ -4,34 +4,42 @@ import type { Country } from "../types/country";
 import "../index.css";
 import "../css/detalles.css";
 
+//Defino el tipo para controlar el estado de la interfaz
 type UIState = "loading" | "error" | "success";
 
 function Detail() {
 
     //obtiene el names.common del país de la URL
     const { name } = useParams<{ name: string }>();
+
+    //permite volver atrás o navegar a otra ruta
     const navigate = useNavigate();
+
+    //permite leer el state que se envió antes
     const location = useLocation();
     console.log("state:", location.state);
     console.log("stateCountry:", location.state?.country);
-    // Si viene del listado, el país ya está en el state — úsalo directamente
+
+    // Si viene del listado, el país ya está en el state entonces lo usa directamente
     const stateCountry = location.state?.country as Country | undefined;
-    const [country, setCountry] = useState<Country | null>(stateCountry ?? null);
+
     //arranca con los datos si ya los tenemos
+    const [country, setCountry] = useState<Country | null>(stateCountry ?? null);
     const [uiState, setUiState] = useState<UIState>(stateCountry ? "success" : "loading");
     //si ya tenemos datos, no hace falta cargar
 
-
+    //clave de la API
     const headers = { 'Authorization': 'Bearer rc_live_4160c6765ae442b0b6e337cd47157a8e' };
 
+    //para cargar el país si no viene del listado
     useEffect(() => {
-        // Si ya tenemos el país del state, no hacemos fetch
+        // Si ya tenemos el país del state, no hacemos fetch, si no hay name tampoco
         if (stateCountry) return;
         if (!name) return;
 
         setUiState("loading");
 
-        // Busca por nombre como fallback (cuando el usuario entra directo por URL)
+        // Busca por nombre cuando el usuario entra directo por URL
         fetch(`https://api.restcountries.com/countries/v5?q=${name}`, {
             headers,
         })
@@ -61,12 +69,12 @@ function Detail() {
         );
     }
 
-    //Para los idiomas
+    //Para los idiomas, como los devuelve como objetos, los transformo en un string
     const languages = country.languages
         ? country.languages.map((l) => l.name).join(", ")
         : "N/A";
 
-    //Para las monedas
+    //Para las monedas igual
     const currencies = country.currencies
         ? Object.values(country.currencies)
             .map((c: any) => `${c.name} (${c.symbol})`)
@@ -76,6 +84,7 @@ function Detail() {
     //Añadir país a favoritos
     const [esFavorito, setEsFavorito] = useState(false);
 
+    //Si al darle click es favorito lo elimina y si no lo es lo añade
     const toggleFavorito = async () => {
         if (esFavorito) {
             await fetch(`http://localhost:3001/api/favoritos/${country.names.common}`, {

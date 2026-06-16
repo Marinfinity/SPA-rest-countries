@@ -21,9 +21,9 @@ function Home() {
     const headers = { 'Authorization': 'Bearer rc_live_4160c6765ae442b0b6e337cd47157a8e' };
     useEffect(() => {
         const fetchAll = async () => {
-            setLoading(true);
-            let all: Country[] = [];
-            let offset = 0;
+            setLoading(true); //marco que se están cargando los datos
+            let all: Country[] = []; //almacena todos los países que voy recibiendo
+            let offset = 0; //indica desde qué país voy a empezar cada petición
             let total = 200000; // valor inicial grande para entrar al bucle
 
             // Hacemos peticiones en bucle hasta tener todos
@@ -39,19 +39,21 @@ function Home() {
                 offset += 100;
             }
 
-            setAllCountries(all);
-            setLoading(false);
+            setAllCountries(all); //guardo el array completo de países
+            setLoading(false); //marco que he terminado de cargar
         };
 
         fetchAll();
     }, []); // Solo al montar
 
     //filtrar todos los países
+
+    //creo un nuevo array csolo con los países que cumplen las condiciones
     const filtered = allCountries.filter((country) => {
-        const matchesName = country.names.common
+        const matchesName = country.names.common  //si contiene el texto buscado
             .toLowerCase()
             .includes(query.toLowerCase());
-        const matchesRegion = filter === "all" ? true : country.region === filter;
+        const matchesRegion = filter === "all" ? true : country.region === filter; //si filter == all, se acepta cualquier reggión, si no, es la región que tenga el filtro
         return matchesName && matchesRegion;
     });
 
@@ -59,7 +61,7 @@ function Home() {
     //ceil redondea hacia arriba, para que si hay 26 paises y el limite es 25, haya 2 paginas
     const totalPages = Math.ceil(filtered.length / limit);
 
-    // Cortamos el slice de la página actual
+    //Corta el array y devuelve solo los países de esa página
     const pageCountries = filtered.slice((page - 1) * limit, page * limit);
 
     //Cuando cambia el filtro o la búsqueda, volvemos a la página 1
@@ -79,10 +81,8 @@ function Home() {
 
                 <Banner />
 
-                {/* 2. Contenedor principal que "sube" un poco para solapar al banner */}
                 <main className="main-content">
 
-                    {/* El buscador ahora es lo primero dentro del contenido principal */}
                     <NavBar
                         query={query}
                         onQueryChange={handleQueryChange}
