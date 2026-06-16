@@ -31,12 +31,12 @@
     transition: 0.3s;
 }
 
-.btn-favorito{
+.btn-favorito {
     background: rgba(0, 0, 0, 0.5);
     border: 1px solid var(--borde-fino);
     color: white;
     margin-top: 40px;
-    padding: 10px 20px; 
+    padding: 10px 20px;
     border-radius: 30px;
     cursor: pointer;
     backdrop-filter: blur(5px);
@@ -45,7 +45,8 @@
 
 
 
-.btn-volver:hover, .btn-favorito:hover {
+.btn-volver:hover,
+.btn-favorito:hover {
     background: var(--dorado);
     border-color: var(--dorado);
 }
@@ -59,8 +60,8 @@
     justify-content: center;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(to right, rgba(10,10,10,0.9), rgba(10,10,10,0.4)), 
-                url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=2070');
+    background: linear-gradient(to right, rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.4)),
+        url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=2070');
     background-size: cover;
     background-position: center;
 }
@@ -120,7 +121,7 @@
     aspect-ratio: 4/3;
     object-fit: cover;
     border-radius: 20px;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
     border: 1px solid var(--borde-fino);
     transform: rotate(2deg);
 }
@@ -175,10 +176,68 @@
         text-align: center;
         justify-content: center;
     }
+
     .lado-imagen {
         display: none;
     }
+
     .separador {
         margin: 40px auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner-detalle {
+        height: 380px;
+    }
+
+    .btn-volver {
+        top: 16px;
+        left: 4%;
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+
+    .detail-subtitulo {
+        font-size: 11px;
+        letter-spacing: 3px;
+    }
+
+    .detail-titulo {
+        font-size: 42px;
+    }
+
+    .nombre-oficial {
+        font-size: 14px;
+        margin-top: 12px;
+    }
+
+    .btn-favorito {
+        margin-top: 20px;
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+
+    .detail-container {
+        padding: 40px 4%;
+    }
+
+    .detail-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .info-card {
+        padding: 24px;
+    }
+
+    .info-card h2 {
+        font-size: 18px;
+    }
+
+    .info-card p {
+        font-size: 14px;
+        flex-direction: column;
+        gap: 4px;
     }
 }
