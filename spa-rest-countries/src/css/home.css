@@ -1,0 +1,26 @@
+:root {
+
+  --bg-color: #121212;   
+
+  --texto-main: #ffffff;        
+  --text-secondary: #b0b0b0;  
+  
+
+  --border-color: #333333;     
+  --transition: all 0.3s ease;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--texto-main);
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.sin-resultados {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 18px;
+  padding: 60px 0;
+}
