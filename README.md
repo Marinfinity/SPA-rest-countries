@@ -50,7 +50,7 @@ Como bonus, añadí un backend ligero con Node y Express que expone un endpoint 
 
 - **Base de datos:** los favoritos se guardan en memoria en el backend, así que se pierden al reiniciar el servidor. Con más tiempo habría añadido una base de datos sencilla para persistirlos.
 - **Sistema de autenticación:** habría tenido sentido añadir login para que cada usuario pueda tener sus propios favoritos guardados en un perfil. Lo descarté para mantenerme dentro del tiempo disponible.
-- **Despliegue:** no llegué a desplegar la app en Vercel o Railway, aunque la estructura del proyecto está preparada para ello.
+- **Imágenes faltantes:** en la API de REST COUNTRIES hay un par de países sin imagen, por lo que está gestionado con una imagen de placeholder generada por IA, de haber tenido más tiempo hubiese implementado yo desde el backend las imágenes correctas para los dos países sin bandera.
 
 ---
 
@@ -60,7 +60,7 @@ Como bonus, añadí un backend ligero con Node y Express que expone un endpoint 
 - Añadir autenticación para perfiles de usuario
 - Mejorar el responsive en móvil, especialmente la vista de detalle
 - Separar mejor los estilos con CSS Modules en lugar de clases globales
-- Desplegar el frontend en Vercel y el backend en Railway
+- Agregar más datos en la vista de datalle de cada país
 
 ---
 
@@ -77,3 +77,5 @@ npm run dev:full
 
 
 El frontend corre en `http://localhost:5173` y el backend en `http://localhost:3001`.
+
+Para ver el proyecto desplegado: https://sparestcountries.vercel.app/
